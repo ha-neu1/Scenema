@@ -1,0 +1,4 @@
+@charset "EUC-KR";
+@import url("https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css");
+#logo {font-family: 'NanumSquareNeoHeavy';}
+body {font-family: 'NanumSquareNeoBold';}
