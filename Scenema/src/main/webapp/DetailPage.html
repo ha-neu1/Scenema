@@ -1,145 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="Test.css" rel="stylesheet">
-<style>
-div {
-	width: 1024px;
-	/* border: 1px solid black; */
-	margin: 0px auto;
-}
-
-#header {
-	height: 70px;
-	margin: 15px auto 0px auto;
-}
-
-.menu {
-	width: 1024px; height: 50px; margin: 1px auto;
-	display: flex; justify-content: center; align-items: center;
-	/* background-color: #FF7322; */
-	border-top: solid 1px lightgrey; 
-	border-bottom: solid 1px lightgrey; 
-}
-
-.menu ul,li{
-	list-style: none; float: left;
-	line-height: 35px; 
-}
-
-.menu_in > a {
-	width: 100px; height: 35px;
-	color: black; font-size: 16px; text-decoration: none;
-	text-align: center; font-family: 'NanumSquareNeoExtraBold';
-	border: solid 5px white;
-	display: block;
+<link href="DetailPage.css" rel="stylesheet">
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	//스크롤시 메뉴바 고정	
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 70) { 
+			$("#menu").css('position','fixed');
+			$("#menu").css('top','0');
+			}
+		else {$("#menu").css('position','relative');} });
 	
-} 
+	
+})
 
-.menu_in > a:hover{
-	color: #FF7322;
-	border-bottom: solid 5px #FF7322;
-}
 
-#imgback {
-	width: 100%; height: 500px;
-	margin: 0px auto;
-	background:linear-gradient(
-		to right,
-		rgba(20, 20, 20, 1) 20%,
-        rgba(20, 20, 20, 0.75) 35%,
-        rgba(20, 20, 20, 0.7) 50%,
-        rgba(20, 20, 20, 0.75) 65%,
-        rgba(20, 20, 20, 1) 100%	
-	),url("/Scenema/Scenema_images/movie1_background.jpg");
-	background-size: cover;
-}
-
-#imgs {
-	width: 1024px;
-	height: 500px;
-	margin: 0px auto;
-	display : flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-/* #imgs #poster {
-	border: 3px solid #FF7322;
-} */
-
-#poster button{
-	width:300px; height:40px;
-	margin: 15px 0px 5px 0px;
-	background-color:#FF7322; 
-	border: 0px solid #FF7322;
-	border-radius: 3px;
-	font-size: 18px;
-	color : white;
-}
-
-#movietitle h1,button{
-	color : white;
-	font-family: 'NanumSquareNeoBold';
-}
-
-#movietitle button{
-	width:80px; height:30px;
-	background-color:transparent; 
-	border: 1px solid white;
-	border-radius: 3px;
-}
-
-#movietitle button:hover{
-	font-family: 'NanumSquareNeoBold';
-	background-color:white; 
-	color:#EA2649;
-}
-
-#details {
-	height: 500px;
-}
-
-</style>
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<div id='header'>
-		<h1 id=logo>Scenema</h1>
-	</div>
+	<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html" >로그인</a>
+				<a href="signin.html" >회원가입</a>
+			</nav>
+			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center" >Scenema</h1>
+		</div>
+		
+		<nav id= 'menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="a.html">홈</a></li>
+				<li class='menu_in'><a href="b.html">영화</a></li>
+				<li class='menu_in'><a href="c.html">인기글</a></li>
+				<li class='menu_in'><a href="d.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="e.html">마이페이지</a></li> 
+				<!-- <li class='menu_in'><a href="a.html">Home</a></li>
+				<li class='menu_in'><a href="b.html">Movie</a></li>
+				<li class='menu_in'><a href="c.html">Hot</a></li>
+				<li class='menu_in'><a href="d.html">Community</a></li>
+				<li class='menu_in'><a href="e.html">My page</a></li> -->
+			</ul>
+		</nav>
+	</header>
 
-	<nav class='menu'>
-		<ul>
-			<li class='menu_in'><a href="a.html">영화</a></li>
-			<li class='menu_in'><a href="b.html">커뮤니티</a></li>
-			<li class='menu_in'><a href="c.html">상영관</a></li>
-			<li class='menu_in'><a href="d.html">이벤트</a></li>
-			<li class='menu_in'><a href="e.html">게시판</a></li>
-		</ul>
-	</nav>
-	
 	<div id='imgback'>
 		<div id='imgs'>
-			<div id="poster" style="width:300px; height:450px;">
-				<img src="/Scenema/Scenema_images/movie1_01.jpg" style="width:300px; height:390px; border-radius: 10px;">
-				<button> 현재 상영 중 </button>
+			<div id="poster" style="width: 300px; height: 450px;">
+				<img src="/Scenema/Scenema_images/movie1_01.jpg"
+					style="width: 300px; height: 390px; border-radius: 10px;">
+				<button>현재 상영 중</button>
 			</div>
-			<div id="movietitle" style="width:650px; height:450px;">
-				<div style="margin-bottom:220px">
-				<h1 style="font-size : 40px; margin-top: 30px; margin-bottom:5px">가디언즈 오브 갤럭시: Volume 3</h1>
-				<h1 style="font-size : 20px">Guardians of the Galaxy Volume 3</h1>
-				<button> ♥ 1.7k </button>
+			<!-- 포스터영역 -->
+			<div id="movietitle" style="width: 650px; height: 450px;">
+				<div id='titleTop' style="margin-bottom: 210px">
+					<h1 style="font-size: 40px; margin-top: 30px; margin-bottom: 5px">가디언즈
+						오브 갤럭시: Volume 3</h1>
+					<h1 style="font-size: 20px">Guardians of the Galaxy Volume 3</h1>
+					<button>♥ 1.7k</button>
 				</div>
-				<div>
-				<h1 style="font-size:20px; margin-bottom:5px;">실관람 평점</h1>
-				<h1 style="font-size:40px; color:orange; margin-top:5px;">★★★★★</h1>
-				</div>
-			</div>
-		</div>
-	</div>
+				<!-- 포스터 영역 -->
 
-	<div id='details'>상세정보공간</div>
+				<div id='titleBottom'>
+					<div style="width: 130px; height: 80px;">
+						<h1 style="font-size: 15px; margin-bottom: 5px;">실관람 평점</h1>
+						<div style="display: flex; align-items: center; margin: 10px 0px;">
+							<img src="/Scenema/Page_img/star_orange.png" style="width: 24px; height: 24px;"> 
+							<span style="font-size: 30px; color: #FF7322; margin-left: 5px;">9.7</span>
+						</div>
+					</div>
+					<div style="width: 160px; height: 80px;">
+						<h1 style="font-size: 15px; margin-bottom: 5px;">10점 리뷰수</h1>
+						<div style="display: flex; align-items: center; margin: 10px 0px;">
+							<img src="/Scenema/Page_img/feedback.png" style="width: 24px; height: 24px;">
+							<span style="font-size: 30px; color: white; margin-left: 10px;">9,164</span>
+						</div>
+					</div>
+					<div style="width: 160px; height: 80px;">
+						<h1 style="font-size: 15px; margin-bottom: 5px;">누적 리뷰수</h1>
+						<div style="display: flex; align-items: center; margin: 10px 0px;">
+							<img src="/Scenema/Page_img/customer-review.png" style="width: 24px; height: 24px;">
+							<span style="font-size: 30px; color: white; margin-left: 10px;">10,785</span>
+						</div>
+					</div>
+				</div>
+				<!-- 텍스트 영역 -->
+			</div>
+			<!-- 제목 영역 -->
+		</div>
+		<!-- 이미지영역 div -->
+	</div>
+	<!-- 이미지영역 배경 div -->
+	
+	<div id='details'>
+		<ul id='detail_list'>
+			<li class='detail_item' id='ditem1' >상세정보</li>
+			<li class='detail_item' id='ditem2' >영화스틸컷</li>
+			<li class='detail_item' id='ditem3' >실관람평</li>
+			<li class='detail_item' id='ditem4' >관련게시글</li>
+		</ul>
+		
+	</div>
+	
 
 </body>
 </html>
