@@ -61,7 +61,7 @@
 			}
 		});//end div_items click;
 		
-		//이미지 슬라이드
+		//슬라이드 페이지버튼
 		$('.slider > .page-btns > div').click(function(){
 			 let $this = $(this);
 			 let index = $this.index();
@@ -104,6 +104,13 @@
 			 
 			 $post.click();
 			});
+		
+		//별점
+		$('.starRev span').click(function(){
+			  $(this).parent().children('span').removeClass('on');
+			  $(this).addClass('on').prevAll('span').addClass('on');
+			  return false;
+		});
 
 	});//end ready
 </script>
@@ -153,7 +160,7 @@
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
 							<img src="/Scenema/Page_img/star_orange.png"
 								style="width: 24px; height: 24px;"> <span
-								style="font-size: 30px; color: #FF7322; margin-left: 5px;">9.7</span>
+								style="font-size: 30px; color: #FF7322; margin-left: 5px;">9.6</span>
 						</div>
 					</div>
 					<div style="width: 160px; height: 80px;">
@@ -161,7 +168,7 @@
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
 							<img src="/Scenema/Page_img/feedback.png"
 								style="width: 24px; height: 24px;"> <span
-								style="font-size: 30px; color: white; margin-left: 10px;">9,164</span>
+								style="font-size: 30px; color: white; margin-left: 10px;">874</span>
 						</div>
 					</div>
 					<div style="width: 160px; height: 80px;">
@@ -169,7 +176,7 @@
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
 							<img src="/Scenema/Page_img/customer-review.png"
 								style="width: 24px; height: 24px;"> <span
-								style="font-size: 30px; color: white; margin-left: 10px;">10,785</span>
+								style="font-size: 30px; color: white; margin-left: 10px;">1,078</span>
 						</div>
 					</div>
 				</div>
@@ -190,7 +197,7 @@
 			</ul>
 		</div><!-- list div -->
 
-		<div style='border-color: orange; margin-left: 8px;'>
+		<div style='margin-left: 8px;'>
 			<div class='detail_divs' id='detail_div1' style='display: block;'>
 				<p style='font-size: 18px; margin: 30px auto;'>
 					‘가모라’를 잃고 슬픔에 빠져 있던 ‘피터 퀼’이 위기에 처한 은하계와 동료를 지키기 위해 다시 한번 가디언즈 팀과 힘을
@@ -208,51 +215,51 @@
 				<p style='font-size: 15px; margin: 7px 0px;'>◦ 출연 : 크리스 프랫, 조 샐다나,
 					데이브 바티스타, 카렌 길런, 폼 클레멘티에프, 빈 디젤, 브래들리 쿠퍼</p>
 
-				<div id='videoDiv;' style='margin-top: 30px;'>
+				<div id='videoDiv;' style='margin-top: 40px;'>
 					<p style='font-size: 18px; display: inline'>⧉ 트레일러</p>
-					<div class="slider" style='margin-top: 15px; height:570px;'>
+					<div class="slider" style='margin-top: 15px; height:670px;'>
 					    <div class="slides">
 					        <div class="active">
-					        	<video controls><source src="/Scenema/Scenema_images/movie1_v1.mp4" type="video/mp4"></video>
 					        	<p>티저 트레일러</p>
+					        	<video controls><source src="/Scenema/Scenema_images/movie1_v1.mp4" type="video/mp4"></video>
 					        </div>
 					        <div> 
-						        <video controls> <source src="/Scenema/Scenema_images/movie1_v2.mp4" type="video/mp4"> </video>
 					        	<p>메인 트레일러</p>
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v2.mp4" type="video/mp4"> </video>
 					        </div>
 					        <div> 
-						        <video controls> <source src="/Scenema/Scenema_images/movie1_v3.mp4" type="video/mp4"> </video>
 					        	<p>'돌아온 가디언즈' 30초 예고편</p>
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v3.mp4" type="video/mp4"> </video>
 					        </div>
 					        <div> 
-						        <video controls> <source src="/Scenema/Scenema_images/movie1_v4.mp4" type="video/mp4"> </video>
 					        	<p>Team '가디언즈'가 맞설 마지막 미션!</p>
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v4.mp4" type="video/mp4"> </video>
 					        </div>
 					        <div> 
-						        <video controls> <source src="/Scenema/Scenema_images/movie1_v5.mp4" type="video/mp4"> </video>
 					        	<p>전 세계 최초 개봉! 전 포맷 예매 오픈!</p>
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v5.mp4" type="video/mp4"> </video>
 					        </div>
 					    </div><!-- video slides -->
-					    <div class="page-btns">
+					    <div class="page-btns" style="display :none;">
 					        <div class="active"></div>
 					        <div></div>
 					        <div></div>
 					        <div></div>
 					        <div></div>
 					    </div><!-- page-btns -->
-					    <div class="side-btns">
-					        <div>
+					    <div class="side-btns" >
+					        <div style="height:53px">
 					            <span class="material-symbols-sharp">chevron_left</span>
 					        </div>
-					        <div>
+					        <div style="height:53px">
 					            <span class="material-symbols-sharp">chevron_right</span>
 					        </div>
 					    </div><!-- side-btns -->
 					</div> <!-- video slider -->
 				</div>
-				<div id='imageDiv;' style='margin-top: 30px;'>
+				<div id='imageDiv' style='margin-top: 5px;'>
 					<p style='font-size: 18px; display: inline'>⧉ 포스터·스틸컷</p>
-					<div class="slider" style='margin-top: 15px;'>
+					<div class="slider" style='margin-top: 15px; border:1px solid lightgrey;'>
 						<div class="slides">
 							<div class="active"	style="background-image: url(/Scenema/Scenema_images/movie1_01.jpg); background-size: contain"></div>
 							<div style="background-image: url(/Scenema/Scenema_images/movie1_02.jpg); background-size: contain"></div>
@@ -288,7 +295,23 @@
 					</div>
 				</div><!-- imgdiv -->
 			</div><!-- div1 -->
-			<div class='detail_divs' id='detail_div2' style='background-color: yellow;'>div2</div><!-- div2 -->
+			
+			<div class='detail_divs' id='detail_div2'>
+				<p style='font-size: 18px; margin-top: 30px; text-align: center;'> 평점·관람평 작성 </p>
+				<div class="starRev">
+					<span class="starR on">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+					<span class="starR">⭐</span>
+				</div>
+			</div><!-- div2 -->
+			
 			<div class='detail_divs' id='detail_div3' style='background-color: lime;'>div3</div> <!-- div3 -->
 		</div><!-- div1 / 2 / 3 영역 -->
 

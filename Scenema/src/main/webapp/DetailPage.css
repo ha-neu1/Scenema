@@ -134,6 +134,7 @@ header {
 	border-bottom: 1px solid #FF7322;
 	text-align: center; line-height:50px;
 	font-size: 18px;
+	cursor: pointer;
 }
 
 #ditem1 { 
@@ -150,9 +151,9 @@ header {
 	display: none;
 }
 
-/* 슬라이더 시작 */
+/* 슬라이더 */
 .slider {
-	width:1000px;
+	width:100%;
     height:600px;
     position:relative;
     background-color:#FDFDFD; 
@@ -196,27 +197,36 @@ header {
 }
 
 .slider > .slides video { 
-	max-width: 80%; 
-	display: block; 
-	margin: 2% auto 0px auto;
+	max-width: 100%; 
+	display: block;
+	margin: 0px auto;
+	position:absolute;
+	z-index:1;
 }
 
 .slider > .slides p{
-	font-size : 20px;
+	height : 50px; line-height: 50px;
+	font-size : 20px; 
 	text-align : center; 
-	margin-top : 20px;
+	margin : 0px auto;
+	padding : 10px auto;
+	border-top : 1px solid lightgrey;
+	border-bottom : 2px solid #FF7322;
 }
 
 /* 슬라이더 좌우 버튼 */
 .slider > .side-btns > div {
     position:absolute;
     top:0; left:0; width:7%; height:100%;
-    background-color:rgba(0,0,0,.05); 
     margin: 0px auto;
     cursor:pointer;
 }
+.slider > .side-btns :hover {
+    background-color:rgba(0,0,0,.1);
+}
+
 .slider > .side-btns > div:last-child {
-    left:auto;
+	left : auto;
     right:0;
 }
 .slider >.side-btns > div > span {
@@ -232,4 +242,35 @@ header {
     right:10%;
 }
 
+.slider >.side-btns > div :hover{
+	background-color:rgba(0,0,0,0);	
+}
+
 /* 슬라이더 끝 */
+
+/* 별점구현 */
+.starRev {
+	width:100%; display:flex;
+	justify-content: center;
+}
+
+.starR{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  color: transparent;
+  text-shadow: 0 0 0 #f0f0f0;
+  font-size: 40px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* 별 이모지에 마우스 오버 시 */
+.starR:hover {
+  text-shadow: 0 0 0 #ccc;
+}
+
+/* 별 이모지를 클릭 후 class="on"이 되었을 경우 */
+.starR.on{
+  text-shadow: 0 0 0 #FF7322;
+}
