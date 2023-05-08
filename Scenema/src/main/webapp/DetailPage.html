@@ -2,21 +2,110 @@
 <html>
 <head>
 <link href="DetailPage.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="js/jquery-3.6.4.min.js"></script>
 <script>
-$(document).ready(function(){
-	//스크롤시 메뉴바 고정	
-	$(window).scroll(function() {
-		if($(this).scrollTop() > 70) { 
-			$("#menu").css('position','fixed');
-			$("#menu").css('top','0');
+	$(document).ready(function() {
+		//스크롤시 메뉴바 고정	
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 70) {
+				$("#menu").css('position', 'fixed');
+				$("#menu").css('top', '0');
+				$("#menu").css('left', '0');
+			} else {
+				$("#menu").css('position', 'relative');
 			}
-		else {$("#menu").css('position','relative');} });
-	
-	
-})
+		});
 
+		//세부정보 하단 클릭시 구현
+		let d_items = [];
+		let d_divs = [];
+		$('.detail_item').each(function() {
+			d_items.push($(this).attr('id'));
+		});
+		$('.detail_divs').each(function() {
+			d_divs.push($(this).attr('id'));
+		});
 
+		$('#ditem1,#ditem2,#ditem3,#ditem4').click(function() {
+			let itemNum = $(this).attr('id').slice(-1);
+			for (i = 0; i < 3; i++) {
+				let str = d_divs[i];
+				if ($(this).attr('id') == d_items[i]) {
+					$("#" + d_items[i]).css({
+						'border' : '1px solid #FF7322',
+						'border-bottom-width' : '0px',
+						'color' : '#FF7322'
+					});
+					$("#" + d_divs[i]).show();
+				} else {
+					if (i < itemNum) {
+						$("#" + d_items[i]).css({
+							'border-top' : '1px solid lightgrey',
+							'border-left' : '1px solid lightgrey',
+							'border-bottom' : '1px solid #FF7322',
+							'border-right' : '1px solid transparent',
+							'color' : 'black'
+						});
+					} else {
+						$("#" + d_items[i]).css({
+							'border-top' : '1px solid lightgrey',
+							'border-left' : '1px solid transparent',
+							'border-right' : '1px solid lightgrey',
+							'border-bottom' : '1px solid #FF7322',
+							'color' : 'black'
+						});
+					}
+					$("#" + d_divs[i]).hide();
+				}
+			}
+		});//end div_items click;
+		
+		//이미지 슬라이드
+		$('.slider > .page-btns > div').click(function(){
+			 let $this = $(this);
+			 let index = $this.index();
+			 
+			 $this.addClass('active');
+			 $this.siblings('.active').removeClass('active');
+			 
+			 let $slider = $this.parent().parent();
+			 
+			 let $current = $slider.find(' > .slides > div.active');
+			 
+			 let $post = $slider.find(' > .slides > div').eq(index);
+			 
+			 $current.removeClass('active');
+			 $post.addClass('active');
+		});
+
+		//좌/우 버튼 추가 슬라이더
+		$('.slider > .side-btns > div').click(function(){
+			 let $this = $(this);
+			 let $slider = $this.closest('.slider');
+			 
+			 let index = $this.index();
+			 let isLeft = index == 0;
+			 
+			 let $current = $slider.find(' > .page-btns > div.active');
+			 let $post;
+			 
+			 if ( isLeft ){ $post = $current.prev();  }
+			 else { $post = $current.next();};
+			 
+			 if ( $post.length == 0 ){
+			     if ( isLeft ){
+			         $post = $slider.find(' > .page-btns > div:last-child');
+			     }
+			     else {
+			         $post = $slider.find(' > .page-btns > div:first-child');
+			     }
+			 };
+			 
+			 $post.click();
+			});
+
+	});//end ready
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -25,24 +114,18 @@ $(document).ready(function(){
 	<header id='header'>
 		<div>
 			<nav id='headlinks'>
-				<a href="login.html" >로그인</a>
-				<a href="signin.html" >회원가입</a>
+				<a href="login.html">로그인</a> <a href="signin.html">회원가입</a>
 			</nav>
-			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center" >Scenema</h1>
+			<h1 id=logo
+				style="margin-top: 0px; margin-bottom: 10px; text-align: center">SCENEMA</h1>
 		</div>
-		
-		<nav id= 'menu' class='menu'>
+
+		<nav id='menu' class='menu'>
 			<ul>
 				<li class='menu_in'><a href="a.html">홈</a></li>
 				<li class='menu_in'><a href="b.html">영화</a></li>
-				<li class='menu_in'><a href="c.html">인기글</a></li>
-				<li class='menu_in'><a href="d.html">커뮤니티</a></li>
-				<li class='menu_in'><a href="e.html">마이페이지</a></li> 
-				<!-- <li class='menu_in'><a href="a.html">Home</a></li>
-				<li class='menu_in'><a href="b.html">Movie</a></li>
-				<li class='menu_in'><a href="c.html">Hot</a></li>
-				<li class='menu_in'><a href="d.html">Community</a></li>
-				<li class='menu_in'><a href="e.html">My page</a></li> -->
+				<li class='menu_in'><a href="c.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="d.html">내정보</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -68,22 +151,25 @@ $(document).ready(function(){
 					<div style="width: 130px; height: 80px;">
 						<h1 style="font-size: 15px; margin-bottom: 5px;">실관람 평점</h1>
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
-							<img src="/Scenema/Page_img/star_orange.png" style="width: 24px; height: 24px;"> 
-							<span style="font-size: 30px; color: #FF7322; margin-left: 5px;">9.7</span>
+							<img src="/Scenema/Page_img/star_orange.png"
+								style="width: 24px; height: 24px;"> <span
+								style="font-size: 30px; color: #FF7322; margin-left: 5px;">9.7</span>
 						</div>
 					</div>
 					<div style="width: 160px; height: 80px;">
 						<h1 style="font-size: 15px; margin-bottom: 5px;">10점 리뷰수</h1>
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
-							<img src="/Scenema/Page_img/feedback.png" style="width: 24px; height: 24px;">
-							<span style="font-size: 30px; color: white; margin-left: 10px;">9,164</span>
+							<img src="/Scenema/Page_img/feedback.png"
+								style="width: 24px; height: 24px;"> <span
+								style="font-size: 30px; color: white; margin-left: 10px;">9,164</span>
 						</div>
 					</div>
 					<div style="width: 160px; height: 80px;">
 						<h1 style="font-size: 15px; margin-bottom: 5px;">누적 리뷰수</h1>
 						<div style="display: flex; align-items: center; margin: 10px 0px;">
-							<img src="/Scenema/Page_img/customer-review.png" style="width: 24px; height: 24px;">
-							<span style="font-size: 30px; color: white; margin-left: 10px;">10,785</span>
+							<img src="/Scenema/Page_img/customer-review.png"
+								style="width: 24px; height: 24px;"> <span
+								style="font-size: 30px; color: white; margin-left: 10px;">10,785</span>
 						</div>
 					</div>
 				</div>
@@ -94,17 +180,121 @@ $(document).ready(function(){
 		<!-- 이미지영역 div -->
 	</div>
 	<!-- 이미지영역 배경 div -->
-	
+
 	<div id='details'>
-		<ul id='detail_list'>
-			<li class='detail_item' id='ditem1' >상세정보</li>
-			<li class='detail_item' id='ditem2' >영화스틸컷</li>
-			<li class='detail_item' id='ditem3' >실관람평</li>
-			<li class='detail_item' id='ditem4' >관련게시글</li>
-		</ul>
-		
-	</div>
-	
+		<div style='background-color: white; height: 80px'>
+			<ul id='detail_list'>
+				<li class='detail_item' id='ditem1' value='detail_div1'>영화정보</li>
+				<li class='detail_item' id='ditem2' value='detail_div2'>관람평</li>
+				<li class='detail_item' id='ditem3' value='detail_div3'>관련게시글</li>
+			</ul>
+		</div><!-- list div -->
+
+		<div style='border-color: orange; margin-left: 8px;'>
+			<div class='detail_divs' id='detail_div1' style='display: block;'>
+				<p style='font-size: 18px; margin: 30px auto;'>
+					‘가모라’를 잃고 슬픔에 빠져 있던 ‘피터 퀼’이 위기에 처한 은하계와 동료를 지키기 위해 다시 한번 가디언즈 팀과 힘을
+					모으고, <br> 성공하지 못할 경우 그들의 마지막이 될지도 모르는 미션에 나서는 이야기
+				</p>
+
+				<p style='font-size: 15px; display: inline'>◦ 장르 : 액션</p>
+				<p
+					style='font-size: 15px; display: inline; margin-left: 10px; padding-left: 10px; border-left: 1px solid lightgrey;'>
+					개봉 : 2023.05.03</p>
+				<p
+					style='font-size: 15px; display: inline; margin-left: 10px; padding-left: 10px; border-left: 1px solid lightgrey;'>
+					상영시간 : 150분</p>
+				<p style='font-size: 15px; margin: 7px 0px;'>◦ 감독 : 제임스 건</p>
+				<p style='font-size: 15px; margin: 7px 0px;'>◦ 출연 : 크리스 프랫, 조 샐다나,
+					데이브 바티스타, 카렌 길런, 폼 클레멘티에프, 빈 디젤, 브래들리 쿠퍼</p>
+
+				<div id='videoDiv;' style='margin-top: 30px;'>
+					<p style='font-size: 18px; display: inline'>⧉ 트레일러</p>
+					<div class="slider" style='margin-top: 15px; height:570px;'>
+					    <div class="slides">
+					        <div class="active">
+					        	<video controls><source src="/Scenema/Scenema_images/movie1_v1.mp4" type="video/mp4"></video>
+					        	<p>티저 트레일러</p>
+					        </div>
+					        <div> 
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v2.mp4" type="video/mp4"> </video>
+					        	<p>메인 트레일러</p>
+					        </div>
+					        <div> 
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v3.mp4" type="video/mp4"> </video>
+					        	<p>'돌아온 가디언즈' 30초 예고편</p>
+					        </div>
+					        <div> 
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v4.mp4" type="video/mp4"> </video>
+					        	<p>Team '가디언즈'가 맞설 마지막 미션!</p>
+					        </div>
+					        <div> 
+						        <video controls> <source src="/Scenema/Scenema_images/movie1_v5.mp4" type="video/mp4"> </video>
+					        	<p>전 세계 최초 개봉! 전 포맷 예매 오픈!</p>
+					        </div>
+					    </div><!-- video slides -->
+					    <div class="page-btns">
+					        <div class="active"></div>
+					        <div></div>
+					        <div></div>
+					        <div></div>
+					        <div></div>
+					    </div><!-- page-btns -->
+					    <div class="side-btns">
+					        <div>
+					            <span class="material-symbols-sharp">chevron_left</span>
+					        </div>
+					        <div>
+					            <span class="material-symbols-sharp">chevron_right</span>
+					        </div>
+					    </div><!-- side-btns -->
+					</div> <!-- video slider -->
+				</div>
+				<div id='imageDiv;' style='margin-top: 30px;'>
+					<p style='font-size: 18px; display: inline'>⧉ 포스터·스틸컷</p>
+					<div class="slider" style='margin-top: 15px;'>
+						<div class="slides">
+							<div class="active"	style="background-image: url(/Scenema/Scenema_images/movie1_01.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_02.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_03.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_04.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_05.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_06.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_07.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_08.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_09.jpg); background-size: contain"></div>
+							<div style="background-image: url(/Scenema/Scenema_images/movie1_10.jpg); background-size: contain"></div>
+						</div>
+						<div class="page-btns">
+							<div class="active"></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+						<div class="side-btns">
+							<div>
+								<span class="material-symbols-sharp">chevron_left</span>
+							</div>
+							<div>
+								<span class="material-symbols-sharp">chevron_right</span>
+							</div>
+						</div>
+					</div>
+				</div><!-- imgdiv -->
+			</div><!-- div1 -->
+			<div class='detail_divs' id='detail_div2' style='background-color: yellow;'>div2</div><!-- div2 -->
+			<div class='detail_divs' id='detail_div3' style='background-color: lime;'>div3</div> <!-- div3 -->
+		</div><!-- div1 / 2 / 3 영역 -->
+
+
+	</div><!-- 세부영역 -->
+
 
 </body>
 </html>
