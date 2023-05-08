@@ -3,8 +3,70 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="view.css">
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	//스크롤시 메뉴바 고정	
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 70) { 
+			$("#menu").css('position','fixed');
+			$("#menu").css('top','0');
+			}
+		else {$("#menu").css('position','relative');} });
+})
+</script>
 </head>
 <body>
-
+<div>
+	<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html" >로그인</a>
+				<a href="signin.html" >회원가입</a>
+			</nav>
+			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center" >SCENEMA</h1>
+		</div>
+		
+		<nav id= 'menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="a.html">홈</a></li>
+				<li class='menu_in'><a href="b.html">영화</a></li>
+				<li class='menu_in'><a href="c.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="d.html">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div class="board_view_wrap">
+            <div class="board_view">
+                <div class="title">
+                    글 제목
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>작성자</dt>
+                        <dd>이름</dd>
+                    </dl>
+                    <dl>
+                        <dt>작성일</dt>
+                        <dd>2021.1.16</dd>
+                    </dl>
+                    <dl>
+                        <dt>조회수</dt>
+                        <dd>33</dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    글 내용
+                </div>
+            </div>
+			<div class="bt_wrap">
+				<a href="boardList.html" class="on">목록보기</a>
+        		<a href="#">새글쓰기</a>
+    		</div>
+    		
+   	 </div>
+</div>
 </body>
 </html>

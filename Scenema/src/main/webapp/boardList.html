@@ -1,46 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="boardList.css">
+	<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	//스크롤시 메뉴바 고정	
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 70) { 
+			$("#menu").css('position','fixed');
+			$("#menu").css('top','0');
+			}
+		else {$("#menu").css('position','relative');} });
+})
+</script>
 </head>
 <body>
-	<div>
-		<header class="Header">
-			<div class="LogoBar">
-				<h1>SCENEMA</h1>
-				<div>�α���</div>
-			</div>
-			<div id="Menu">
-				<ul class="MenuList">
-					<li><a href="">��ȭ</a></li>
-					<li><a href="">Ŀ�´�Ƽ</a></li>
-					<li><a href="">�̺�Ʈ</a></li>
-				</ul>
-			</div>
+		<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html" >로그인</a>
+				<a href="signin.html" >회원가입</a>
+			</nav>
+			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center" >SCENEMA</h1>
+		</div>
+		<nav id= 'menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="a.html">홈</a></li>
+				<li class='menu_in'><a href="b.html">영화</a></li>
+				<li class='menu_in'><a href="c.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="d.html">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
 			<div class="SearchBar">
 				<form class="SearchInput">
-					<input id="Search" type="text" placeholder="�˻�� �Է��ϼ���"
+					<input id="Search" type="text" placeholder="검색어를 입력하세요"
 					autocomplete="off" class="SearchInput_input" value>
+					<button class="SearchButton">검색</button>
 				</form>
 			</div>
 		</header>
 		<div>
-			<button type="button" class="btn btn-outline-secondary">�۾���</button>
-			<div>
-				<table class="table table-row table-hover w-100">
-				<thead>
-					<tr>
-						<th class="w-40">����</th>
-						<th>�ۼ���</th>
-						<th>�ۼ���</th>
-						<th>���ƿ�</th>
-						<th>��ȸ��</th>
-					</tr>
-				</thead>
-			</div>
-			
+			<button class="Writebtn">
+				<a href="#" class="on">글쓰기</a>
+			</button>
+            <div class="board_list">
+                <div class="top">
+                    <div class="title">제목</div>
+                    <div class="writer">글쓴이</div>
+                    <div class="date">작성일</div>
+                    <div class="count">조회수</div>
+                </div>
+                <div>
+                    <div class="title"><a href="view.html">글 제목</a></div>
+                    <div class="writer">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="count">조회수</div>
+                </div>
+                <div>
+                    <div class="title"><a href="view.html">글 제목</a></div>
+                    <div class="writer">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="count">조회수</div>
+                </div>
+                <div>
+                    <div class="title"><a href="view.html">글 제목</a></div>
+                    <div class="writer">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="count">조회수</div>
+                </div>
+                <div>
+                    <div class="title"><a href="view.html">글 제목</a></div>
+                    <div class="writer">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="count">조회수</div>
+                </div>
+                <div>
+                    <div class="title"><a href="view.html">글 제목</a></div>
+                    <div class="writer">이름</div>
+                    <div class="date">날짜</div>
+                    <div class="count">조회수</div>
+                </div>
+            </div>
+			<div class="board_page">
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <!-- <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a> -->
+                <a href="#" class="bt next">></a>
+            </div>
 		</div>
-	</div>
 </body>
 </html>
