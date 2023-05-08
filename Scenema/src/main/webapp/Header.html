@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="HeaderCss.css" rel="stylesheet">
+<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	//스크롤시 메뉴바 고정	
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 70) { 
+			$("#menu").css('position','fixed');
+			$("#menu").css('top','0');
+			}
+		else {$("#menu").css('position','relative');} });	
+})
+</script>
+<style>
+
+
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html" >로그인</a>
+				<a href="signin.html" >회원가입</a>
+			</nav>
+			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center">SCENEMA</h1>
+		</div>
+		
+		<nav id= 'menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="a.html">홈</a></li>
+				<li class='menu_in'><a href="b.html">영화</a></li>
+				<li class='menu_in'><a href="c.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="d.html">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>
