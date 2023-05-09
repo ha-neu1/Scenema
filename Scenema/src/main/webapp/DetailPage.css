@@ -41,6 +41,7 @@ header {
 	border-top: solid 1px lightgrey;
 	border-bottom: solid 1px lightgrey;
 	position:relative;
+	
 }
 
 .menu ul, li {
@@ -271,8 +272,8 @@ header {
 .rating {
 	position: relative;
 	width: 400px;
-	color: #ddd;
 	font-size: 80px;
+	color: #ddd;
 	text-align: center;
 	margin:0px;
 }
@@ -299,6 +300,7 @@ header {
 
 .rating_txt {
 	margin:0px 0px 0px 10px;
+	color: #FF7322;
 	font-size: 50px;
 	height:80px; line-height:80px;
 	width:80px;
@@ -307,27 +309,51 @@ header {
 /* 평점,관람평 작성 구현 */
 .writing_box {
 	margin-top:30px;
-	height: 90px;
+	height: 100px;
 	display:flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.writing_box>textarea{
+.writing_box>div {
 	margin:0px;
-	width:70%;
-	height:87%;
-	resize: none;
+	width:700px;
+	height:99%;
 	border: 1px solid lightgrey;
-	border-right-width: 0px;
-	font-size:14px;
-	padding:5px;
+	border-right-width:0px;
+	padding-left:2px;
 }
+
+.writing_box>div>textarea{
+	margin:0px;
+	width:98%;
+	height:60px;
+	resize: none;
+	border-width: 0px;
+	font-size:14px;
+	padding:7px;
+	padding-top:10px;
+	color:lightgrey;
+	overflow:hidden;
+	outline:none;
+}
+
+.writing_box>div>p{
+	font-size:10px;
+	text-align: right;
+	padding:0px 10px 5px 0px;
+	border-width: 0px;
+	width:98%;
+	height:13px;
+	line-height: 13px;
+	margin:0px; 
+}
+
 .writing_box>button{
 	margin:0px;
 	width:10%;
 	height:100%;
-	border: 2px solid #FF7322;
+	border: 1px solid #FF7322;
 	background-color: #FF7322;
 	color:white;
 	line-height: 100%;
@@ -335,4 +361,98 @@ header {
 	font-size:16px;
 	cursor: pointer;
 }
+
+/* 관람평 조회 헤더 */
+.comment_box {
+	margin-top : 50px;
+	/* border : 1px solid lime; */
+	height : 1000px;
+}
+
+.comment_box>p {
+	margin : 5px auto;
+	font-size:14px;
+	padding : 10px;
+	display:flex;
+	justify-content: space-between;
+	border-bottom: 2px solid #FF7322;
+}
+
+/* 관람평 조회 */
+.cmt {
+	/* background-color: yellow; */
+	width : 100%;
+	height : 100px;
+	display : flex;
+	margin: 10px auto;
+}
+
+.cmt>span{
+	font-size:14px;
+	width : 10%;
+	height : 90px;
+	border-right: 1px solid lightgrey;
+	line-height: 90px;
+	text-align: center;
+	padding:5px;
+}
+.cmt>span:nth-child(2){
+	font-size:15px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cmt_star1{
+	position: relative;
+	color: #ddd;
+	text-align: center;
+}
+.cmt_star2{
+	width: 0;
+	color: #FF7322;
+	position: absolute;
+	left: 0; right: 0;
+	overflow:hidden;
+	pointer-events: none;
+}
+.cmt_score{
+	margin-left: 3px;
+	text-align: center;
+}
+.cmt>span:nth-child(3){
+	text-align: left;
+	border-right: 1px solid lightgrey;
+	line-height: 17px;
+	width : 65%;
+	display:flex;
+	align-items: center;
+}
+.cmt>span:nth-child(5){
+	width : 5%;
+	border-right-width: 0px;
+}
+
+.cmt>span:nth-child(5)>button{
+	width : 100%;
+	height : 100%;
+	border-width: 0px;
+	background-color: transparent;
+	color: lightgrey;
+	cursor: pointer;
+	
+}
+
+.cmt>span:nth-child(5)>.delete_btn:hover{
+	color: red;
+}
+
+.material-symbols-sharp {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+
 
