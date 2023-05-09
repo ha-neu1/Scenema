@@ -13,6 +13,11 @@ header {
 	margin: 10px auto;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #logo {
 	font-family: 'NanumSquareNeoHeavy';
 	height: 40px;
@@ -63,10 +68,19 @@ header {
 	border-bottom: solid 5px #FF7322;
 }
 
+.board_menu {
+	width: 1000px;
+	height: 60px;
+	padding: 20px;
+	margin: 3px auto 0;
+	margin-left: -10px;
+    text-align: left;
+}
+
 .board_view {
-    width: 100%;
     border-top: 2px solid #000;
 }
+
 
 .board_view .title {
     padding: 20px 15px;
@@ -111,9 +125,6 @@ header {
     font-size: 14px;
 }
 
-.board_view .info dl dt {
-
-}
 
 .board_view .info dl dd {
     margin-left: 10px;
@@ -126,8 +137,6 @@ header {
     line-height: 160%;
     font-size: 14px;
 }
-
-
 
 .board_view .info dl {
         width: 50%;
