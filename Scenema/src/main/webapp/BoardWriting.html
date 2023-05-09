@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="Boardstyle.css" rel="stylesheet">
+<style>
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="js/jquery-3.6.4.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			//스크롤시 메뉴바 고정	
+			$(window).scroll(function() {
+				if ($(this).scrollTop() > 70) {
+					$("#menu").css('position', 'fixed');
+					$("#menu").css('top', '0');
+				} else {
+					$("#menu").css('position', 'relative');
+				}
+			});
+
+		});
+
+		function checkBoard() {
+			var checkOption = document.getElementById("option").value;
+			var checkTitle = document.getElementById("title").value;
+			var checkContent = document.getElementById("content").value;
+				if (!checkOption){
+					alert("게시판을 선택해주세요.");
+				}
+				else if(!checkTitle){
+					alert("제목을 입력해주세요.");
+				}
+				else if(!checkContent){
+					alert("내용을 입력하세요.");
+				}
+				else{
+					alert("작성이 완료되었습니다.")			
+				}
+		}
+		
+		
+	</script>
+
+	<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html">로그인</a> <a href="signin.html">회원가입</a>
+			</nav>
+			<h1 id=logo
+				style="margin-top: 0px; margin-bottom: 10px; text-align: center">SCENEMA</h1>
+		</div>
+
+		<nav id='menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="a.html">홈</a></li>
+				<li class='menu_in'><a href="b.html">영화</a></li>
+				<li class='menu_in'><a href="c.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="d.html">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div id="board">
+		<div>
+			<h2 id="board_writing">커뮤니티 글쓰기</h2>
+		</div>
+		<div>
+			<label for="option">게시판</label>
+				 <select id="option">
+								<option value="">선택</option>
+								<option value="게시판1">게시판1</option>
+								<option value="게시판2">게시판2</option>
+								<option value="게시판3">게시판3</option>
+								<option value="게시판4">게시판4</option>
+				</select>
+		</div>
+		<div>
+			<label for="title">제목</label>
+			<input type="text" placeholder="제목을 입력해주세요." id="title"><br>
+		</div>
+		<div>
+			<label for="content">내용</label>
+			<input type="text" placeholder="게시글을 입력해주세요." id="content">
+		</div>
+		<div>
+			<label for="attachment">첨부파일</label>
+			<input type=file id="attachment" multiple>
+			<input type="submit" id="submit" value="글쓰기" onclick="checkBoard()">
+		</div>
+	</div>
+
+</body>
+</html>

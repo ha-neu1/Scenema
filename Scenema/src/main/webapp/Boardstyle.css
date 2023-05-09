@@ -74,58 +74,39 @@ header {
 	border-bottom: solid 5px #FF7322;
 }
 
-
-#title {
-	line-height: 50px;
-	border: 1px solid #000;
+#board_writing {
+	border: 2px solid #000;
+	line-height: 55px;
 	border-left: none; border-right: none;
 	vertical-align: middle;
 }
 
 #board {
-	width: 98%;
-}
-
-#board_select {
+	border: 1px solid #999;
+	border-left: none; border-right:none;
 	line-height: 30px;
-	border: 1px solid #000;
-	border-left: none; border-right: none;
-	vertical-align: middle;	
-}
-
-.col {
-	text-align: center;
 }
 
 #option {
-	height: 30px;
-	width: 180px;
-}
-
-.board_input {
+	margin: 5px 0;
+	width:150px;
 	padding: 5px;
 }
 
-#name {
-	width: 98%;
-}
-
 #title {
+	margin: 5px 0;
 	width: 98%;
+	padding: 7px;
 }
 
 #content {
-	width: 98%;
-	height: 500px;
-	resize: none;
+	margin: 5px 0;
+	width:99%;
+	height:500px;
 }
 
 #submit {
 	float: right;
-	margin-right: 10px;
 }
 
-#button {
-	margin-top: 5px;
-}
 
