@@ -70,7 +70,7 @@ header {
     position: relative;
     display: inline-block;냥
 }
-.products h3{
+.products h3 {
     font-size: 24px;
     color: #545454;
     margin-top:60px;
@@ -128,3 +128,12 @@ header {
     display: block;
     opacity: 1;
     transform: translateY(0); /* 원래 위치로 복원 */
+}
+
+.white-bar {
+	display:block;
+	background-color : white;
+	height:200px
+	width:100%
+}
+}
