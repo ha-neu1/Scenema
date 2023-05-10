@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판 글 목록 조회</title>
+	<link rel="stylesheet" href="boardList.css">
+	<script src="js/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+	//스크롤시 메뉴바 고정	
+	$(window).scroll(function() {
+		if($(this).scrollTop() > 70) { 
+			$("#menu").css('position','fixed');
+			$("#menu").css('top','0');
+			}
+		else {$("#menu").css('position','relative');} });
+})
+</script>
+</head>
+<body>
+	<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html" >로그인</a>
+				<a href="signUp.html" >회원가입</a>
+			</nav>
+			<h1 id=logo style="margin-top:0px; margin-bottom:10px; text-align: center" >SCENEMA</h1>
+		</div>
+		<nav id= 'menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="mainpage.html">홈</a></li>
+				<li class='menu_in'><a href="movie.html">영화</a></li>
+				<li class='menu_in'><a href="boardList.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="#">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+		<div class="Search_write">
+			<div class="SearchBar">
+			<h2>커뮤니티</h2>
+				<form class="SearchInput">
+					<input id="Search" type="text" placeholder="검색어를 입력하세요"
+					autocomplete="off" class="SearchInput_input" value>
+					<button class="SearchButton">검색</button>
+				</form>
+				<div class="bt_wrap">
+				<a href="BoardWriting.html" class="on">글쓰기</a>
+			</div>
+			</div>
+		</div>
+		<div>
+            <div class="board_list">
+                <div class="top">
+                    <div class="title">제목</div>
+                    <div class="writer">작성자</div>
+                    <div class="date">작성일</div>
+                    <div class="count">조회수</div>
+                    <div class="like">좋아요</div>
+                </div>
+                <div>
+                    <div class="title"><a href="boardRead.html">가디언즈는 내 가슴 속 영원히... 줍줍...</a></div>
+                    <div class="writer">주모경</div>
+                    <div class="date">23.05.10</div>
+                    <div class="count">11</div>
+                    <div class="like">0</div>
+                </div>
+                <div>
+                    <div class="title"><a href="boardRead.html">북미에서 호불호 갈린 이유를 아주 잘알겠다</a></div>
+                    <div class="writer">알곰알곰</div>
+                    <div class="date">23.05.10</div>
+                    <div class="count">49</div>
+                    <div class="like">1</div>
+                </div>
+                <div>
+                    <div class="title"><a href="boardRead.html">아는 내용으로 이런 감동을 주다니</a></div>
+                    <div class="writer">웨브</div>
+                    <div class="date">23.05.10</div>
+                    <div class="count">5</div>
+                    <div class="like">0</div>
+                </div>
+                <div>
+                    <div class="title"><a href="boardRead.html">레전드는 몇년이 지나도 레전드구나</a></div>
+                    <div class="writer">법제이</div>
+                    <div class="date">23.05.09</div>
+                    <div class="count">18</div>
+                    <div class="like">2</div>
+                </div>
+                <div>
+                    <div class="title"><a href="boardRead.html">어벤져스도 저리 구르면 죽는다는 말에 극공감ㅋㅋㅋㅋ</a></div>
+                    <div class="writer">공덕천</div>
+                    <div class="date">23.05.08</div>
+                    <div class="count">23</div>
+                    <div class="like">0</div>
+                </div>
+            </div>
+			<div class="board_page">
+                <a href="#" class="bt prev"><</a>
+                <a href="#" class="num on">1</a>
+                <!-- <a href="#" class="num">2</a>
+                <a href="#" class="num">3</a>
+                <a href="#" class="num">4</a>
+                <a href="#" class="num">5</a> -->
+                <a href="#" class="bt next">></a>
+            </div>
+		</div>
+</body>
+</html>
