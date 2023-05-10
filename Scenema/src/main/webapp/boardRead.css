@@ -69,7 +69,7 @@ a {
 }
 
 .board_menu {
-	width: 1000px;
+	width: 1240px;
 	height: 60px;
 	padding: 20px;
 	margin: 3px auto 0;
@@ -83,12 +83,14 @@ a {
 
 
 .board_view .title {
+	width: 995px;
     padding: 20px 15px;
     border-bottom: 1px dashed #ddd;
     font-size: 18px;
 }
 
 .board_view .info {
+	width: 995px;
     padding: 15px;
     border-bottom: 1px solid #999;
     font-size: 0;
@@ -132,6 +134,7 @@ a {
 }
 
 .board_view .cont {
+	width: 995px;
     padding: 15px;
     border-bottom: 1px solid #000;
     line-height: 160%;
