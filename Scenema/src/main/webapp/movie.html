@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<link href="movie.css" rel="stylesheet">
+<script src="js/jquery-3.6.4.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>전체영화</title>
+<script>
+	$(document).ready(function() {
+		//스크롤시 메뉴바 고정
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 70) {
+				$("#menu").css('position', 'fixed');
+				$("#menu").css('top', '0');
+				$("#menu").css('left', '0');
+				$("#menu").css('z-index', '1');
+			} else {
+				$("#menu").css('position', 'relative');
+			}
+		});
+	})
+</script>
+</head>
+<body>
+<header id='header'>
+		<div>
+			<nav id='headlinks'>
+				<a href="login.html">로그인</a> <a href="signUp.html">회원가입</a>
+			</nav>
+			<h1 id=logo
+				style="margin-top: 0px; margin-bottom: 10px; text-align: center">SCENEMA</h1>
+		</div>
+
+		<nav id='menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="mainpage.html">홈</a></li>
+				<li class='menu_in'><a href="#">영화</a></li>
+				<li class='menu_in'><a href="boardList.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="#">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div class="products">
+		<h3>영화 목록</h3>
+		
+		<div class='products_box'>
+			<div class="image-container">
+				<a href="DetailPage1.html"> 
+					<img src="pic/product1.png" height="292px">
+					<span class="image-info"> 가디언즈 오브 갤럭시 vol 3 </span>
+				</a>
+			</div>
+			<div class="image-container">
+				<a href="DetailPage2.html"> <img src="pic/product2.png"
+					height="292px"> <span class="image-info"> 슈퍼 마리오 브라더스 </span>
+				</a>
+			</div>
+	
+			<div class="image-container">
+				<a href="DetailPage3.html"> <img src="pic/product3.png"
+					height="292px">
+					<span class="image-info"> 극장판 짱구는 못말려:<br>동물소환 닌자 배꼽수비대 </span>
+				</a>
+			</div>
+	
+			<div class="image-container">
+				<a href="DetailPage4.html"> <img src="pic/product4.png"
+					height="292px"> <span class="image-info"> 분노의 질주: 라이드
+						오어 다이 </span>
+				</a>
+			</div>
+		
+		</div>
+
+		<div class='products_box'>
+			<div class="image-container">
+				<a href="DetailPage5.html"> <img src="pic/product5.png"
+					height="292px"> <span class="image-info"> 더 퍼스트 슬램덩크 </span>
+				</a>
+			</div>
+	
+			<div class="image-container">
+				<a href="DetailPage6.html"> <img src="pic/product6.png"
+					height="292px"> <span class="image-info"> 문재인입니다 </span>
+				</a>
+			</div>
+			<div class="image-container">
+				<a href="DetailPage7.html"> <img src="pic/product7.png"
+					height="292px"> <span class="image-info"> 드림 </span>
+				</a>
+			</div>
+			<div class="image-container">
+				<a href="DetailPage8.html"> <img src="pic/product8.png"
+					height="292px"> <span class="image-info"> 존 윅 4 </span>
+				</a>
+			</div>
+		</div>
+	</div>
+		
+	
+</body>
+</html>
