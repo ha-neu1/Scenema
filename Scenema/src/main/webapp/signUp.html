@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>회원가입, SCENEMA</title>
+</head>
+
+<script>
+	function signUpCheck() {
+		var id = documnet.getElementById("id");
+		var pw = documnet.getElementById("pw");
+		var pwAgain = documnet.getElementById("pwAgain");
+		var name = documnet.getElementById("name");
+		var male = documnet.getElementById("male");
+		var female = documnet.getElementById("female");
+		var phone = documnet.getElementById("phone");
+		var emailId = documnet.getElementById("emailId");
+		var agree = documnet.getElementById("agree");
+
+		if (id.value == "") {
+			alert("ID를 입력하세요.");
+			id.focus();
+			return false;
+		}
+		;
+
+		if (pw.value == "") {
+			alert("PW를 입력하세요.");
+			pw.focus();
+			return false;
+		}
+		;
+
+		var pwCheck = /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-](?=.*[0-9]).{8,20}$/;
+
+		if (!pwCheck.text(pw.value)) {
+			alert("8~20자리 영대소문자, 숫자, 특수문자 조합으로 입력하세요.");
+			pw.focus()
+			return false();
+		}
+		;
+
+		if (pwAgain.value !== pw.value) {
+			alert("일치하지 않습니다.");
+			pwAgain.focus();
+			return false;
+		}
+		;
+
+		if (name.value == "") {
+			alert("이름을 입력하세요.");
+			name.focus();
+			return false;
+		}
+		;
+
+		if (!male.checked && !femail.checked) {
+			alert("성별을 선택하세요.");
+			male.focus();
+			return false;
+		}
+
+		var onlyNumber = /^[0-9]+/g;
+
+		if (!onlyNumber.test(phone.value)) {
+			alert("숫자만 입력하세요.");
+			phone.focus();
+			return false;
+		}
+
+		if (!agree.checked) {
+			alert("약관에 동의해주세요.");
+			agree.focus();
+			return false;
+		}
+
+		document.signUpForm.submit();
+	}
+
+	function idCheck() {
+		window.open();
+	}
+
+	function changEmail() {
+		var emailAddress = document.getElementById("emailAddress");
+		var emailAddressSelect = document.getElementById("emailAddressSelect");
+		var emAdSeIndex = emailAddressSelect.options.selectedIndex;
+		var emAdSeValue = emailAddressSelect.options[emAdSeIndex].value;
+		emailAddress.value = emAdSevalue;
+	}
+</script>
+
+<style>
+@import
+	url("https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css")
+	;
+
+* {
+	font-family: 'NanumSquareNeoBold';
+}
+
+#pageTitle {
+	width: 1024px;
+	margin: 0px auto;
+}
+
+header {
+	height: 98px;
+	margin: 10px auto;
+}
+
+#logo {
+	font-family: 'NanumSquareNeoHeavy';
+	height: 40px;
+}
+
+#headlinks {
+	width: 1024px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+#headlinks>a {
+	height: 15px;
+	display: inline-block;
+	color: black;
+	font-size: 13px;
+	text-decoration: none;
+	text-align: right;
+	border-bottom: 1px solid transparent;
+	margin-left: 5px;
+}
+
+#headlinks>a:hover {
+	border-bottom: 1px solid black;
+}
+
+.menu {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	border-top: solid 1px lightgrey;
+	border-bottom: solid 1px lightgrey;
+	position: relative;
+}
+
+.menu ul, li {
+	list-style: none;
+	float: left;
+	line-height: 35px;
+}
+
+.menu_in>a {
+	width: 130px;
+	height: 30px;
+	color: black;
+	font-size: 16px;
+	text-decoration: none;
+	text-align: center;
+	line-height: 30px;
+	border: solid 5px transparent;
+	display: block;
+	font-family: 'NanumSquareNeoExtraBold';
+}
+
+.menu_in>a:hover {
+	color: #FF7322;
+	border-bottom: solid 5px #FF7322;
+}
+</style>
+
+<style>
+article {
+	border: 1px solid lightgrey;
+	border-radius: 20px;
+	height: 580px;
+	line-height: 50px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	margin-top: 50px;
+	padding: 50px;
+	width: 500px;
+	margin-top: 50px;
+}
+
+footer {
+	border-top: solid 1px lightgrey;
+	font-size: 10px;
+	margin-top: 50px;
+	padding: 50px;
+	text-align: center;
+	padding: 50px;
+	margin-top: 50px;
+	font-size: 10px;
+}
+
+input {
+	border: 1px solid lightgrey;
+	border-radius: 15px;
+	height: 16px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 8px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 8px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+select {
+	border: 1px solid lightgrey;
+	border-radius: 15px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 8px;
+	margin-top: 10px;
+}
+
+#idCheckButton {
+	background-color: #FF7322;
+	border: 1px solid #FF7322;
+	border-radius: 20px;
+	color: white;
+	margin: 3px;
+	padding-bottom: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 8px;
+}
+
+#idCheckButton:hover {
+	background-color: white;
+	border: 1px solid #FF7322;
+	border-radius: 20px;
+	color: #FF7322;
+}
+
+#signUpButton {
+	background-color: #FF7322;
+	border: 1px solid #FF7322;
+	border-radius: 20px;
+	color: white;
+	margin-top: 50px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+}
+
+#signUpButton:hover {
+	background-color: white;
+	border: 1px solid #FF7322;;
+	border-radius: 20px;
+	color: #FF7322;
+}
+
+#id {
+	width: 133px;
+}
+
+#birthYear {
+	width: 38px;
+}
+
+#birthDate {
+	width: 20px;
+}
+
+#phoneEx {
+	font-size: 11px;
+}
+
+#emailId {
+	width: 130px;
+}
+
+#termsButton {
+	background-color: white;
+	border: 1px solid #FF7322;
+	border-radius: 20px;
+	color: #FF7322;
+	padding: 3px;
+	text-decoration: none;
+	color: #FF7322;
+}
+
+#termsButton:hover {
+	color: white;
+	background-color: #FF7322;
+}
+
+#agree {
+	accent-color: #FF7322;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-top: 20px;
+	height: 12px;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+#male {
+	accent-color: #FF7322;
+	margin-left: 0px;
+	height: 10px;
+}
+
+#female {
+	accent-color: #FF7322;
+	margin-left: 10px;
+	height: 10px;
+}
+</style>
+
+<body>
+	<header id='header'>
+		<div id="pageTitle">
+			<nav id='headlinks'>
+				<a href="login.html">로그인</a> <a href="signUp.html">회원가입</a>
+			</nav>
+			<h1 id=logo
+				style="margin-top: 0px; margin-bottom: 10px; text-align: center">SCENEMA</h1>
+		</div>
+
+		<nav id='menu' class='menu'>
+			<ul>
+				<li class='menu_in'><a href="mainpage.html">홈</a></li>
+				<li class='menu_in'><a href="movie.html">영화</a></li>
+				<li class='menu_in'><a href="boardList.html">커뮤니티</a></li>
+				<li class='menu_in'><a href="#.html">내정보</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+
+<body>
+	<section>
+		<article>
+			<form name="signUpForm" action="" method="post">
+
+				<div>
+					<label><input type="text" name="id" id="id"
+						placeholder="ID" maxlength="16"></label>
+					<button type="button" id="idCheckButton" onclick="idCheck();">확인</button>
+				</div>
+
+				<div>
+					<label><input type="password" name="pw" id="pw"
+						placeholder="PW" maxlength="16"></label><br> <label><input
+						type="password" name="pwAgain" id="pwAgain" placeholder="PW"
+						maxlength="16"></label>
+				</div>
+
+				<div>
+					<label><input type="text" name="name" id="name"
+						placeholder="NAME"></label>
+				</div>
+
+				<div>
+					<label><input type="text" name="birthYear" id="birthYear"
+						placeholder="YYYY" maxlength="4">&nbsp;/&nbsp; <select
+						name="birthMonth" id="birthMonth"><option value="">MM</option>
+							<option value="01">1</option>
+							<option value="02">2</option>
+							<option value="03">3</option>
+							<option value="04">4</option>
+							<option value="05">5</option>
+							<option value="06">6</option>
+							<option value="07">7</option>
+							<option value="08">8</option>
+							<option value="09">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option></select>&nbsp;&nbsp;/&nbsp; <input
+						type="text" name="birthDate" id="birthDate" placeholder="DD"
+						maxlength="2"></label>
+				</div>
+
+				<div>
+					<label><input type="radio" value="male" name="sex"
+						id="male">♂<input type="radio" value="female" name="sex"
+						id="female">♀</label>
+				</div>
+
+				<div>
+					<label><input type="tel" name="phone" id="phone"
+						placeholder="PHONE"><span id="phoneEx">&nbsp;&nbsp;EX:
+							010-1234-1234</span></label>
+				</div>
+
+				<div>
+					<label><input type="text" name="emailId" id="emailId"
+						placeholder="E-MAIL">&nbsp;@ <input type="text"
+						name="emailAddress" id="emailAddress" placeholder=""> <select
+						name="emailAddressSelect" id="emailAddressSelect"
+						onchange="emailChange();"><option value="">직접 입력</option>
+							<option value="naver.com">NAVER</option>
+							<option value="kakao.com">KAKAO</option>
+							<option value="google.com">GOOGLE</option>
+							<option value="gmail.com">GMAIL</option>
+							<option value="outlook.com">OUTLOOK</option>
+							<option value="daum.net">DAUM</option></select></label>
+				</div>
+
+				<div>
+					<label><a href="scenemaTerms.html" id="termsButton"
+						title="약관을 확인하세요">약관</a><input type="checkbox" value="y"
+						name="agree" id="agree">&nbsp;&nbsp;동의합니다.</label>
+				</div>
+
+				<div>
+					<label><button type="button" id="signUpButton"
+							onclick="signUpCheck();">회원가입</button></label>
+				</div>
+
+			</form>
+		</article>
+	</section>
+	<footer>code by SCENEMA, group 5 of MC 13th</footer>
+</body>
+</html>
